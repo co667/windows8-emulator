@@ -6,77 +6,80 @@
     <title>Windows 8 Emulator</title>
     <style>
         body {
-            background-color: #2d2d30;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: #2E2E2E;
+            color: white;
+            font-family: Arial, sans-serif;
         }
         .start-screen {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
+            gap: 10px;
             padding: 20px;
         }
         .tile {
-            background-color: #0078d7;
-            border-radius: 5px;
-            padding: 20px;
+            background-color: #0078D7;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            text-align: center;
-            transition: background-color 0.3s;
-            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
         }
-        .tile:hover {
-            background-color: #005a9e;
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #1A1A1A;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
         }
-        .tile-icon {
-            font-size: 2em;
+        .charms {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 300px;
+            height: 100%;
+            display: none;
         }
-        .tile-label {
-            margin-top: 10px;
-            font-size: 1.2em;
+        .charms.visible {
+            display: block;
         }
     </style>
-    <script>
-        function tileClicked(label) {
-            alert('You clicked on ' + label);
-        }
-    </script>
 </head>
 <body>
     <div class="start-screen">
-        <div class="tile" onclick="tileClicked('Mail')">
-            <div class="tile-icon">📧</div>
-            <div class="tile-label">Mail</div>
-        </div>
-        <div class="tile" onclick="tileClicked('Calendar')">
-            <div class="tile-icon">📅</div>
-            <div class="tile-label">Calendar</div>
-        </div>
-        <div class="tile" onclick="tileClicked('People')">
-            <div class="tile-icon">👥</div>
-            <div class="tile-label">People</div>
-        </div>
-        <div class="tile" onclick="tileClicked('Store')">
-            <div class="tile-icon">🛒</div>
-            <div class="tile-label">Store</div>
-        </div>
-        <div class="tile" onclick="tileClicked('Settings')">
-            <div class="tile-icon">⚙️</div>
-            <div class="tile-label">Settings</div>
-        </div>
-        <div class="tile" onclick="tileClicked('Photos')">
-            <div class="tile-icon">🖼️</div>
-            <div class="tile-label">Photos</div>
-        </div>
-        <div class="tile" onclick="tileClicked('News')">
-            <div class="tile-icon">📰</div>
-            <div class="tile-label">News</div>
-        </div>
-        <div class="tile" onclick="tileClicked('Maps')">
-            <div class="tile-icon">🗺️</div>
-            <div class="tile-label">Maps</div>
-        </div>
+        <div class="tile">Mail</div>
+        <div class="tile">Calendar</div>
+        <div class="tile">Store</div>
+        <div class="tile">Weather</div>
+        <div class="tile">News</div>
+        <div class="tile">Music</div>
+        <div class="tile">Photos</div>
+        <div class="tile">Settings</div>
     </div>
+    <div class="taskbar">
+        <span>Start</span>
+        <div style="flex-grow: 1;"></div>
+        <span>Search</span>
+        <span>Share</span>
+        <span>Devices</span>
+        <span>Settings</span>
+    </div>
+    <div class="charms" id="charms">
+        <!-- Charms bar content goes here -->
+    </div>
+    <script>
+        // JavaScript to handle charms visibility
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'c') {
+                document.getElementById('charms').classList.toggle('visible');
+            }
+        });
+    </script>
 </body>
 </html>
