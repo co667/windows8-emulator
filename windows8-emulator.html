@@ -4,47 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows 8 Emulator</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f3f3f3;
+            background-color: #2d2d30;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .start-menu {
-            width: 300px;
-            height: auto;
-            background-color: #0078D7;
-            border-radius: 5px;
+        .start-screen {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
             padding: 20px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
         .tile {
-            width: 100px;
-            height: 100px;
-            background-color: #3C78D8;
+            background-color: #0078d7;
+            border-radius: 5px;
+            padding: 20px;
             color: white;
             text-align: center;
-            line-height: 100px;
-            border-radius: 5px;
-            margin: 5px;
-            display: inline-block;
-            font-size: 20px;
+            transition: background-color 0.3s;
+            cursor: pointer;
         }
         .tile:hover {
-            background-color: #4A90E2;
+            background-color: #005a9e;
+        }
+        .tile-icon {
+            font-size: 2em;
+        }
+        .tile-label {
+            margin-top: 10px;
+            font-size: 1.2em;
         }
     </style>
+    <script>
+        function tileClicked(label) {
+            alert('You clicked on ' + label);
+        }
+    </script>
 </head>
 <body>
-    <div class="start-menu">
-        <h1 style="color: white; text-align: center;">Start</h1>
-        <div class="tiles">
-            <div class="tile">Mail</div>
-            <div class="tile">Calendar</div>
-            <div class="tile">Photos</div>
-            <div class="tile">Music</div>
-            <div class="tile">Settings</div>
-            <div class="tile">Store</div>
+    <div class="start-screen">
+        <div class="tile" onclick="tileClicked('Mail')">
+            <div class="tile-icon">📧</div>
+            <div class="tile-label">Mail</div>
+        </div>
+        <div class="tile" onclick="tileClicked('Calendar')">
+            <div class="tile-icon">📅</div>
+            <div class="tile-label">Calendar</div>
+        </div>
+        <div class="tile" onclick="tileClicked('People')">
+            <div class="tile-icon">👥</div>
+            <div class="tile-label">People</div>
+        </div>
+        <div class="tile" onclick="tileClicked('Store')">
+            <div class="tile-icon">🛒</div>
+            <div class="tile-label">Store</div>
+        </div>
+        <div class="tile" onclick="tileClicked('Settings')">
+            <div class="tile-icon">⚙️</div>
+            <div class="tile-label">Settings</div>
+        </div>
+        <div class="tile" onclick="tileClicked('Photos')">
+            <div class="tile-icon">🖼️</div>
+            <div class="tile-label">Photos</div>
+        </div>
+        <div class="tile" onclick="tileClicked('News')">
+            <div class="tile-icon">📰</div>
+            <div class="tile-label">News</div>
+        </div>
+        <div class="tile" onclick="tileClicked('Maps')">
+            <div class="tile-icon">🗺️</div>
+            <div class="tile-label">Maps</div>
         </div>
     </div>
 </body>
