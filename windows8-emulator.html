@@ -5,62 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows 8 Emulator</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f3f3f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .start-menu {
+            width: 300px;
+            height: auto;
+            background-color: #0078D7;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            background-color: #3C78D8;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 20px;
+        }
+        .tile:hover {
+            background-color: #4A90E2;
+        }
+    </style>
 </head>
 <body>
-    <div class="taskbar">
-        <div class="start-button">Start</div>
-        <div class="app-icons">
-            <div class="tile calculator" draggable="true">Calculator</div>
-            <div class="tile notepad" draggable="true">Notepad</div>
-            <div class="tile paint" draggable="true">Paint</div>
-            <div class="tile file-explorer" draggable="true">File Explorer</div>
+    <div class="start-menu">
+        <h1 style="color: white; text-align: center;">Start</h1>
+        <div class="tiles">
+            <div class="tile">Mail</div>
+            <div class="tile">Calendar</div>
+            <div class="tile">Photos</div>
+            <div class="tile">Music</div>
+            <div class="tile">Settings</div>
+            <div class="tile">Store</div>
         </div>
     </div>
-
-    <div class="windows">
-        <!-- Calculator -->
-        <div class="window calculator-window" style="display:none;">
-            <h2>Calculator</h2>
-            <input type="text" class="calc-display" value="0" readonly>
-            <div class="calc-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>+</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>-</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>*</button>
-                <button>0</button>
-                <button>=</button>
-                <button>C</button>
-                <button>/</button>
-            </div>
-        </div>
-        <!-- Notepad -->
-        <div class="window notepad-window" style="display:none;">
-            <h2>Notepad</h2>
-            <textarea></textarea>
-        </div>
-        <!-- Paint -->
-        <div class="window paint-window" style="display:none;">
-            <h2>Paint</h2>
-            <canvas id="paintCanvas"></canvas>
-        </div>
-        <!-- File Explorer -->
-        <div class="window explorer-window" style="display:none;">
-            <h2>File Explorer</h2>
-            <div class="file-list">
-                <div class="file">File1.txt</div>
-                <div class="file">File2.txt</div>
-                <div class="file">File3.txt</div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>
